@@ -1,0 +1,19 @@
+{
+  "providerId": "Microsoft.Tools.ServiceModel.Svcutil",
+  "version": "2.0.3",
+  "options": {
+    "inputs": [
+      "../../../../Job/SOAP/PaymentServiceDemo.wsdl"
+    ],
+    "namespaceMappings": [
+      "*, ServiceReference"
+    ],
+    "outputFile": "Reference.cs",
+    "references": [
+      "SimpleSOAPClient, {SimpleSOAPClient, 2.1.0}",
+      "System.Web.Services.Description, {System.Web.Services.Description, 4.9.0}"
+    ],
+    "targetFramework": "net5.0",
+    "typeReuseMode": "All"
+  }
+}

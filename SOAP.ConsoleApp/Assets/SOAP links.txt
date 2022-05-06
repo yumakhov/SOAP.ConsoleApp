@@ -1,0 +1,9 @@
+SOAP links
+
+SimpleSoapClient for .Net - https://github.com/gravity00/SimpleSOAPClient
+IBM SOAP description - https://www.ibm.com/docs/en/rsas/7.5.0?topic=standards-soap
+SkillFactory SOAP description - https://blog.skillfactory.ru/glossary/soap-api/
+
+WSDL Quick Guide - https://www.tutorialspoint.com/wsdl/wsdl_quick_guide.htm
+
+WSDL example - https://www.tutorialworks.com/wsdl/
