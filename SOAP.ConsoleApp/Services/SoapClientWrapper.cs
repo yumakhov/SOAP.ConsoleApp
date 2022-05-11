@@ -3,6 +3,7 @@ using SimpleSOAPClient.Exceptions;
 using SimpleSOAPClient.Handlers;
 using SimpleSOAPClient.Helpers;
 using SimpleSOAPClient.Models;
+using SimpleSOAPClient.Models.Headers;
 using SimpleSOAPClient.Models.Headers.Oasis.Security;
 using System;
 using System.Threading;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SOAP.ConsoleApp.Services
 {
-    public class SoapClientWrapper<TRequest, TResponse>: IDisposable where TRequest: class where TResponse : class, new()
+    public class SoapClientWrapper: IDisposable
     {
         private readonly SoapClient _soapClient;
         private readonly string _serviceUrl;
@@ -28,8 +29,8 @@ namespace SOAP.ConsoleApp.Services
                 {
                     OnSoapEnvelopeRequestAsyncAction = async (soapClient, soapEnvelopeRequestArguments, cancellationToken) =>
                     {
-                        //soapEnvelopeRequestArguments.Envelope.WithHeaders(
-                        //    KnownHeader.Oasis.Security.UsernameTokenAndPasswordText("some-user", "some-password"));
+                        soapEnvelopeRequestArguments.Envelope.WithHeaders(
+                            KnownHeader.Oasis.Security.UsernameTokenAndPasswordText("some-user", "some-password"));
                     },
                     OnHttpRequestAsyncAction = async (soapClient, httpRequestArguments, cancellationToken) =>
                     {
@@ -59,14 +60,14 @@ namespace SOAP.ConsoleApp.Services
             _soapClient?.Dispose();
         }
 
-        public async Task<TResponse> SendRequestAsync(string operationName, TRequest requestMessage, CancellationToken ct)
+        public async Task<TResponse> SendRequestAsync<TRequest, TResponse>(string operationName, TRequest requestMessage, CancellationToken ct) where TRequest : class where TResponse : class, new()
         {
             var requestEnvelope = await SendSoapRequestAsync(operationName, requestMessage, ct);
 
-            return DeserializeSoapResponseBody(requestEnvelope);
+            return DeserializeSoapResponseBody<TResponse>(requestEnvelope);
         }
 
-        private async Task<SoapEnvelope> SendSoapRequestAsync(string operationName, TRequest requestMessage, CancellationToken ct)
+        private async Task<SoapEnvelope> SendSoapRequestAsync<TRequest>(string operationName, TRequest requestMessage, CancellationToken ct)
         {
             try
             {
@@ -91,7 +92,7 @@ namespace SOAP.ConsoleApp.Services
             }
         }
 
-        private TResponse DeserializeSoapResponseBody(SoapEnvelope responseEnvelope)
+        private TResponse DeserializeSoapResponseBody<TResponse>(SoapEnvelope responseEnvelope) where TResponse : class, new()
         {
             try
             {
