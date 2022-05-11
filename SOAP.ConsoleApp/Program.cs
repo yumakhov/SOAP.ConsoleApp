@@ -1,15 +1,7 @@
 ﻿using ServiceReference;
-using SimpleSOAPClient;
-using SimpleSOAPClient.Exceptions;
-using SimpleSOAPClient.Handlers;
-using SimpleSOAPClient.Helpers;
-using SimpleSOAPClient.Models;
-using SimpleSOAPClient.Models.Headers;
-using SimpleSOAPClient.Models.Headers.Oasis.Security;
 using SOAP.ConsoleApp.Services;
 using System;
 using System.Threading;
-using System.Xml.Serialization;
 
 namespace SOAP.ConsoleApp
 {
