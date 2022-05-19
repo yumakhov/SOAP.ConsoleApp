@@ -17,4 +17,9 @@
   <ItemGroup>
     <Folder Include="Assets\" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.ServiceModel">
+      <HintPath>System.ServiceModel</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

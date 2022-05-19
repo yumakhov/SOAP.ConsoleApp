@@ -30,7 +30,7 @@ namespace SOAP.ConsoleApp.Services
                     OnSoapEnvelopeRequestAsyncAction = async (soapClient, soapEnvelopeRequestArguments, cancellationToken) =>
                     {
                         soapEnvelopeRequestArguments.Envelope.WithHeaders(
-                            KnownHeader.Oasis.Security.UsernameTokenAndPasswordText("some-user", "some-password"));
+                            KnownHeader.Oasis.Security.UsernameTokenAndPasswordText("some-user", "some-password"));                       
                     },
                     OnHttpRequestAsyncAction = async (soapClient, httpRequestArguments, cancellationToken) =>
                     {
@@ -52,7 +52,8 @@ namespace SOAP.ConsoleApp.Services
                                 "{" + Constant.Namespace.OrgOpenOasisDocsWss200401Oasis200401WssWssecuritySecext10 +
                                 "}Security");
                     }
-                });
+                })
+                .UsingSettings(SoapClientSettings.Default);
         }
 
         public void Dispose()
