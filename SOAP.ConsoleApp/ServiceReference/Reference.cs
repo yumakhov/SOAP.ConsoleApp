@@ -128,7 +128,7 @@ namespace ServiceReference
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UserBalanceResponse", WrapperNamespace="http://localhost:8088/PaymentServiceDemo/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="IncreaseUserBalanceResult", WrapperNamespace="http://localhost:8088/PaymentServiceDemo/", IsWrapped=true)]
     public partial class IncreaseUserBalanceResponse
     {
         
@@ -168,7 +168,7 @@ namespace ServiceReference
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="UserBalanceResponse", WrapperNamespace="http://localhost:8088/PaymentServiceDemo/", IsWrapped=true)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="DecreaseUserBalanceResult", WrapperNamespace="http://localhost:8088/PaymentServiceDemo/", IsWrapped=true)]
     public partial class DecreaseUserBalanceResponse
     {
         

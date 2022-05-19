@@ -1,6 +1,7 @@
 ﻿using ServiceReference;
 using SOAP.ConsoleApp.Services;
 using System;
+using System.ServiceModel.Channels;
 using System.Threading;
 
 namespace SOAP.ConsoleApp
@@ -9,6 +10,13 @@ namespace SOAP.ConsoleApp
     {
         static void Main(string[] args)
         {
+            //var cl = new PaymentServiceDemoClient();
+            //var res = cl.DecreaseUserBalanceAsync(new PaymentData
+            //{
+            //    UserId = "some_id",
+            //    PaymentAmount = 300
+            //}).Result;
+
             var ct = new CancellationTokenSource().Token;
             using (var client = new SoapClientWrapper("http://localhost:8088/PaymentServiceDemo"))
             {

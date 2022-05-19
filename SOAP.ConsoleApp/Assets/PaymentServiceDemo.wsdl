@@ -46,13 +46,22 @@
         </xsd:complexType>
       </xsd:element>
       
-      <xsd:element name="UserBalanceResponse">
+      <xsd:element name="IncreaseUserBalanceResult">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element ref="tns:BalanceInfo"/>
           </xsd:sequence>
         </xsd:complexType>
-      </xsd:element>      
+      </xsd:element>  
+
+
+      <xsd:element name="DecreaseUserBalanceResult">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:BalanceInfo"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element> 	  
     </xsd:schema>
   </wsdl:types>
 
@@ -60,14 +69,14 @@
     <wsdl:part element="tns:IncreaseUserBalanceRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="IncreaseUserBalanceResponse">
-    <wsdl:part element="tns:UserBalanceResponse" name="parameters"/>
+    <wsdl:part element="tns:IncreaseUserBalanceResult" name="parameters"/>
   </wsdl:message>
 
   <wsdl:message name="DecreaseUserBalanceRequest">
     <wsdl:part element="tns:DecreaseUserBalanceRequest" name="parameters"/>
   </wsdl:message>
   <wsdl:message name="DecreaseUserBalanceResponse">
-    <wsdl:part element="tns:UserBalanceResponse" name="parameters"/>
+    <wsdl:part element="tns:DecreaseUserBalanceResult" name="parameters"/>
   </wsdl:message>
 
   <wsdl:portType name="PaymentServiceDemo">
